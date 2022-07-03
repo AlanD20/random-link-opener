@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Random Link Opener",
+  "version": "1.0.0",
+  "description": "Random link opener",
+  "author": "AlanD20 <aland20@pm.me>",
+  "commands": {
+    "_execute_action": {
+      "suggested_key": "Ctrl+Shift+Y",
+      "description": "Save current tab's link in the bookmark."
+    },
+    "BOOKMARK_CURRENT_TAB": {
+      "suggested_key": "Ctrl+Shift+Period",
+      "description": "Save current tab's link in the bookmark."
+    },
+    "BOOKMARK_ALL_TAB": {
+      "description": "Save all opened tabs link in the bookmark."
+    },
+    "OPEN_RANDOM_BOOKMARK": {
+      "suggested_key": "Ctrl+Shift+Comma",
+      "description": "Open random bookmark in your bookmark list."
+    },
+    "OPEN_LATEST_BOOKMARK": {
+      "suggested_key": "Ctrl+Shift+L",
+      "description": "Open latest bookmark in your bookmark list."
+    }
+  },
+  "icons": {
+    "16": "src/assets/icons/icons8-16.png",
+    "32": "src/assets/icons/icons8-32.png",
+    "72": "src/assets/icons/icons8-72.png",
+    "96": "src/assets/icons/icons8-96.png"
+  },
+  "action": {
+    "default_icons": {
+      "16": "src/assets/icons/icons8-16.png",
+      "32": "src/assets/icons/icons8-32.png",
+      "72": "src/assets/icons/icons8-72.png"
+    },
+    "default_title": "Random Link Opener",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "tabs",
+    "activeTab",
+    "notifications"
+  ],
+  "homepage_url": "https://github.com/AlanD20/random-link-openers",
+  "offline_enabled": true,
+  "options_page": "index.html",
+  "options_ui": {
+    "page": "index.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "src/background/init.ts",
+    "type": "module"
+  }
+}
