@@ -30,7 +30,7 @@ const BookmarkLinks = () => {
         ))
       ) : (
         <h3 className="flex flex-col items-center justify-center gap-4 font-bold text-xl text-gray-400">
-          <ImFilesEmpty />
+          <ImFilesEmpty className='' />
           Bookmark is empty!
         </h3>
       )}

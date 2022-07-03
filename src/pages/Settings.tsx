@@ -11,7 +11,6 @@ import AlertStatus from '@/components/ui/AlertStatus';
 import Navbar from '@/components/ui/Navbar';
 import { useChromeStorage } from '@/hooks/useChromeStorage';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
 const Settings = () => {
   const { clearBookmark } = useChromeStorage();
@@ -55,7 +54,7 @@ const Settings = () => {
 
   return (
     <div className="page prose prose-sm">
-      <h2 className="page__title">Settings</h2>
+      <h2 className="text-gray-700">Settings</h2>
 
       <AlertStatus />
       <div className="mb-8 flex flex-col text-xl gap-4 w-full">

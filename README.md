@@ -20,7 +20,7 @@ A simple chrome extension to store links and open them randomly or open them lat
 
 ### Current Bugs
 
-- **Bug**:Switching off Notification & Syncing might not work. 
+- **Bug**: Switching off Notification & Syncing might not work. 
    - **Temporary Fix**: You have to play with the button until it grays out to turn it off completely.
 
 ### Build or Production

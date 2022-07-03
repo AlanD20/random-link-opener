@@ -3,8 +3,8 @@ import BookmarkLinks from '@comp/ui/BookmarkLinks';
 
 const Home = () => {
   return (
-    <div className="page prose ">
-      <h2 className="page__title">Bookmarked Links:</h2>
+    <div className="page">
+      <h2 className="text-2xl mb-4 font-bold text-gray-700">Bookmarked Links:</h2>
 
       <AlertStatus />
       <BookmarkLinks />

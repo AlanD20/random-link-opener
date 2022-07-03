@@ -29,13 +29,16 @@
     "16": "src/assets/icons/icons8-16.png",
     "32": "src/assets/icons/icons8-32.png",
     "72": "src/assets/icons/icons8-72.png",
-    "96": "src/assets/icons/icons8-96.png"
+    "96": "src/assets/icons/icons8-96.png",
+    "128": "src/assets/icons/icons8-128.png"
   },
   "action": {
     "default_icons": {
       "16": "src/assets/icons/icons8-16.png",
       "32": "src/assets/icons/icons8-32.png",
-      "72": "src/assets/icons/icons8-72.png"
+      "72": "src/assets/icons/icons8-72.png",
+      "96": "src/assets/icons/icons8-96.png",
+      "128": "src/assets/icons/icons8-128.png"
     },
     "default_title": "Random Link Opener",
     "default_popup": "index.html"
@@ -51,8 +54,7 @@
   "offline_enabled": true,
   "options_page": "index.html",
   "options_ui": {
-    "page": "index.html",
-    "open_in_tab": true
+    "page": "index.html#/settings"
   },
   "background": {
     "service_worker": "src/background/init.ts",

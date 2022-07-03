@@ -29,7 +29,7 @@ const SingleBookmark = ({ id, url, name, icon }: Props) => {
         href={url}
         target="_blank"
         rel="noreferrer"
-        className="flex gap-2 items-center capitalize w-full py-4 px-3"
+        className="underline flex gap-2 items-center capitalize w-full py-4 px-3"
       >
         {iconUrl ? (
           <img
@@ -47,14 +47,14 @@ const SingleBookmark = ({ id, url, name, icon }: Props) => {
       <div className="ml-auto flex items-center gap-4 px-4">
         <Link
           to={`/${id}/edit`}
-          className="btn btn-success btn-sm flex text-white p-2"
+          className="btn btn-outline btn-success btn-sm flex p-2 border-2 border-solid [&:hover>*]:text-white"
         >
           <button>
             <FaEdit />
           </button>
         </Link>
         <button
-          className="btn btn-error btn-sm flex items-center text-white p-2"
+          className="btn btn-outline btn-error btn-sm flex items-center p-2 border-2 border-solid [&:hover>*]:text-white "
           onClick={handleDeleteBookmark}
         >
           <FaTrash />
