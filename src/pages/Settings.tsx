@@ -1,40 +1,47 @@
+import { useAppDispatch, useAppSelector } from '@/common/store';
 import {
   clearUserPref,
   getNotificationStatus,
   getStorageAreaStatus,
+  getUserPref,
   setNotificationStatus,
   setStorageAreaStatus,
 } from '@/common/userPref';
-import NavItem from '@/components/NavItem';
 import ToggleInput from '@/components/ToggleInput';
-import AlertStatus from '@/components/ui/AlertStatus';
+import { useEffect } from 'react';
 import Navbar from '@/components/ui/Navbar';
+import AlertStatus from '@/components/ui/AlertStatus';
 import { useChromeStorage } from '@/hooks/useChromeStorage';
-import { ChangeEvent, useEffect, useState } from 'react';
+import {
+  resetDefault,
+  setNotification,
+  setStorageArea,
+} from '@/features/settingsSlice';
 
 const Settings = () => {
   const { clearBookmark } = useChromeStorage();
 
-  const [notification, setNotification] = useState<boolean | undefined>(
-    undefined
-  );
-  const [storageArea, setStorageArea] = useState<boolean | undefined>(
-    undefined
-  );
+  const dispatch = useAppDispatch();
+  const settings = useAppSelector((state) => state.settings);
 
   const handleClearUserPref = async () => {
+    dispatch(resetDefault());
     await clearUserPref();
     window.location.reload();
   };
 
-  const handleToggleNotification = async (e: ChangeEvent<HTMLInputElement>) => {
+  const handleToggleNotification = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     await setNotificationStatus(e.target.checked);
-    setNotification(e.target.checked);
+    dispatch(setNotification({ notifications: e.target.checked }));
   };
 
-  const handleToggleStorageSync = async (e: ChangeEvent<HTMLInputElement>) => {
+  const handleToggleStorageSync = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     await setStorageAreaStatus(e.target.checked);
-    setStorageArea(e.target.checked);
+    dispatch(setStorageArea({ storageArea: e.target.checked }));
   };
 
   const handleShortcutBtn = async () => {
@@ -45,10 +52,12 @@ const Settings = () => {
 
   useEffect(() => {
     getNotificationStatus().then(
-      (status: boolean) => void setNotification(status)
+      (status: boolean) =>
+        void dispatch(setNotification({ notifications: status }))
     );
     getStorageAreaStatus().then(
-      (status: boolean) => void setStorageArea(status)
+      (status: boolean) =>
+        void dispatch(setStorageArea({ storageArea: status }))
     );
   }, []);
 
@@ -59,18 +68,19 @@ const Settings = () => {
       <AlertStatus />
       <div className="mb-8 flex flex-col text-xl gap-4 w-full">
         <ToggleInput
-          className={notification ? 'bg-red-400' : 'bg-gray-500'}
+          className={settings.notifications ? 'bg-red-400' : 'bg-gray-500'}
           name="notification"
-          value={notification}
+          value={settings.notifications}
           label="Notification"
-          onChange={handleToggleNotification}
+          onClick={handleToggleNotification}
         />
         <ToggleInput
-          className={storageArea ? 'bg-red-400' : 'bg-gray-500'}
+          className={settings.storageArea ? 'bg-red-400' : 'bg-gray-500'}
           name="sync-Storage"
-          value={storageArea}
+          value={settings.storageArea}
           label="Sync Storage"
-          onChange={handleToggleStorageSync}
+          onClick={handleToggleStorageSync}
+          disabled={true}
         />
       </div>
 

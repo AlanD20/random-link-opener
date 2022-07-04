@@ -6,11 +6,9 @@ const AlertStatus = () => {
   const dispatch = useAppDispatch();
   const error = useAppSelector((state) => state.alert.error);
   const success = useAppSelector((state) => state.alert.success);
-  // const error = 'error';
-  // const success = 'success';
 
   useEffect(() => {
-    const timer = setTimeout(() => void dispatch(clearAlert()), 500);
+    const timer = setTimeout(() => void dispatch(clearAlert()), 700);
     return () => void clearTimeout(timer);
   }, [dispatch, error, success]);
 

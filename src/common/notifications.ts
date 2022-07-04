@@ -14,3 +14,7 @@ export const createNotify = async (
     iconUrl: 'src/assets/icons/icons8-96.png',
   });
 };
+
+export const setBadge = async (text: string) => {
+  return chrome.action.setBadgeText({ text });
+};

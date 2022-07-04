@@ -1,15 +1,15 @@
-## Random Link Opener
+# Random Link Opener
 
 A simple chrome extension to store links and open them randomly or open them later.
 
-### Features
+## Features
 
 - Custom keyboard shortcut can be set at `chrome://extensions/shortcuts`. The shortcut must follow [Supported Chrome Keys](https://developer.chrome.com/docs/extensions/reference/commands/#supported-keys).
 - Edit / Remove saved bookmarks.
 - By clicking any saved bookmark, opens saved link in the new tab.
 - Configuration / Saved links are synced with your signed in Google Account.
 
-### Default Shortcuts
+## Default Shortcuts
 
 - **Ctrl + Shift + Y**: Opens Extension popup.
 - **Ctrl + Shift + Period (.)**: Saves currently opened tab in your bookmark.
@@ -18,12 +18,12 @@ A simple chrome extension to store links and open them randomly or open them lat
 - **Ctrl + Shift + P** _(Suggested)_: Saves all opened tabs to your bookmark list.
 
 
-### Current Bugs
+## Current Bugs
 
-- **Bug**: Switching off Notification & Syncing might not work. 
-   - **Temporary Fix**: You have to play with the button until it grays out to turn it off completely.
+- **Bug**: Recursively save all opened tabs will cause infinite loop in local storage area only. 
+   - **Temporary Fix**: Disabled temporarily until it gets fixed.
 
-### Build or Production
+## Build or Production
 
 1. Install packages wth yarn
 ```bash
@@ -35,7 +35,7 @@ yarn bundle
 ```
 3. That was all :) grab the `bundle.zip` file at the root of the project directory and install the extension.
 
-### Development
+## Development
 1. Install packages wth yarn
 ```bash
 yarn install

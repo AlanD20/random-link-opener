@@ -23,12 +23,14 @@ const SingleBookmark = ({ id, url, name, icon }: Props) => {
     await deleteBookmark(id);
   };
 
+  const handleOpenTabButton = async () => {
+    await chrome.tabs.create({ url });
+  };
+
   return (
     <li className="flex bg-gray-100 rounded-md hover:bg-gray-200 cursor-pointer">
-      <a
-        href={url}
-        target="_blank"
-        rel="noreferrer"
+      <button
+        onClick={handleOpenTabButton}
         className="underline flex gap-2 items-center capitalize w-full py-4 px-3"
       >
         {iconUrl ? (
@@ -41,8 +43,8 @@ const SingleBookmark = ({ id, url, name, icon }: Props) => {
           <BiLinkExternal className="text-2xl" />
         )}
 
-        {name}
-      </a>
+        <span className="text-left">{name}</span>
+      </button>
 
       <div className="ml-auto flex items-center gap-4 px-4">
         <Link
