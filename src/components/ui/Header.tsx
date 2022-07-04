@@ -4,20 +4,9 @@ import { FaHome } from 'react-icons/fa';
 import { BiBookAdd } from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
 import { IoReload } from 'react-icons/io5';
-import { useChromeStorage } from '@/hooks/useChromeStorage';
-import { useAppDispatch } from '@/common/store';
-import { clearAlert, setSuccess } from '@/features/alertSlice';
 
 const Header = () => {
-  const dispatch = useAppDispatch();
-  const { getAllBookmarks } = useChromeStorage();
-
-  const handleReloadBookmark = async () => {
-    // dispatch(clearAlert());
-    // await getAllBookmarks();
-    // dispatch(setSuccess({ success: 'Refreshing...' }));
-    window.location.reload();
-  };
+  const handleReloadBookmark = () => void window.location.reload();
 
   return (
     <Navbar>

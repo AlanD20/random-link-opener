@@ -1,28 +1,28 @@
 {
   "manifest_version": 3,
   "name": "Random Link Opener",
-  "version": "1.0.0",
-  "description": "Random link opener",
+  "version": "1.1.0",
+  "description": "Bookmark Linka and open them later when you need it or use a simple keyboard shortcut.",
   "author": "AlanD20 <aland20@pm.me>",
   "commands": {
     "_execute_action": {
       "suggested_key": "Ctrl+Shift+Y",
-      "description": "Save current tab's link in the bookmark."
+      "description": "Show Extension Popup"
     },
     "BOOKMARK_CURRENT_TAB": {
       "suggested_key": "Ctrl+Shift+Period",
-      "description": "Save current tab's link in the bookmark."
+      "description": "Save Currently Opened Tab"
     },
     "BOOKMARK_ALL_TAB": {
-      "description": "Save all opened tabs link in the bookmark."
+      "description": "Save All Opened Tabs"
     },
     "OPEN_RANDOM_BOOKMARK": {
       "suggested_key": "Ctrl+Shift+Comma",
-      "description": "Open random bookmark in your bookmark list."
+      "description": "Open Random Bookmark"
     },
     "OPEN_LATEST_BOOKMARK": {
       "suggested_key": "Ctrl+Shift+L",
-      "description": "Open latest bookmark in your bookmark list."
+      "description": "Open Latest Bookmark"
     }
   },
   "icons": {

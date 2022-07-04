@@ -14,15 +14,15 @@ export const alertSlice = createSlice({
   name: 'alert',
   initialState,
   reducers: {
-    setError(state: any, action: PayloadAction<AlertState>) {
+    setError(state: AlertState, action: PayloadAction<AlertState>) {
       state.success = null;
       state.error = action.payload.error;
     },
-    setSuccess(state: any, action: PayloadAction<AlertState>) {
+    setSuccess(state: AlertState, action: PayloadAction<AlertState>) {
       state.error = null;
       state.success = action.payload.success;
     },
-    clearAlert(state: any) {
+    clearAlert(state: AlertState) {
       state.error = null;
       state.success = null;
     },
