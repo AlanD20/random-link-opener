@@ -1,13 +1,14 @@
 # Random Link Opener
 
-A simple chrome extension to store links and open them randomly or open them later.
+Simple Chrome Extension to save links and access them later on. You can set custom shortcuts to open the saved links randomly.
 
 ## Features
 
 - Custom keyboard shortcut can be set at `chrome://extensions/shortcuts`. The shortcut must follow [Supported Chrome Keys](https://developer.chrome.com/docs/extensions/reference/commands/#supported-keys).
-- Edit / Remove saved bookmarks.
-- By clicking any saved bookmark, opens saved link in the new tab.
-- Configuration / Saved links are synced with your signed in Google Account.
+- Add/Edit/Remove bookmarks.
+- By clicking on any saved bookmark, it opens it in a new tab.
+- Enabling Sync Storage in the extension settings will sync your configuration and all saved bookmarks to your signed in Google Account.
+- Disable/Enable Notification.
 
 ## Default Shortcuts
 
@@ -15,17 +16,11 @@ A simple chrome extension to store links and open them randomly or open them lat
 - **Ctrl + Shift + Period (.)**: Saves currently opened tab in your bookmark.
 - **Ctrl + Shift + Comma (,)**: Opens random saved link in your bookmark list.
 - **Ctrl + Shift + L**: Opens latest saved link in your bookmark list.
-- **Ctrl + Shift + P** _(Suggested)_: Saves all opened tabs to your bookmark list.
-
-
-## Current Bugs
-
-- **Bug**: Recursively save all opened tabs will cause infinite loop in local storage area only. 
-   - **Temporary Fix**: Disabled temporarily until it gets fixed.
+- **Ctrl + Shift + P** _(Not set by default but suggested if set by user)_: Saves all opened tabs to your bookmark list.
 
 ## Build or Production
 
-1. Install packages wth yarn
+1. Install the packages wth yarn
 ```bash
 yarn install
 ```
@@ -40,12 +35,17 @@ yarn bundle
 ```bash
 yarn install
 ```
-2. Start dev server
+2. Run prepare script in package.json
+```bash
+yarn prepare
+```
+3. Start dev server
 ```bash
 yarn dev
 ```
-3. Load the `dist` directory in your chrome extension developer. Any changes in the project will reflect without reloading manually.
-   - if you change manifest permissions, you must remove and load the extension again to your chrome extension.
+4. Load the `dist` directory in your Chrome Extension page `chrome://extensions/`. 
+   - Any changes you do in any file of the project, it will reflect instantly without reloading manually.
+   - if you change manifest permissions, you must uninstall and reinstall the extension again to your chrome extensions.
 
 ## Contribute
 Want to add new features? Bug fixes? Typos? Feel free to open a new pull request :)

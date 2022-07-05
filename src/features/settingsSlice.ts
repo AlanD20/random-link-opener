@@ -1,5 +1,5 @@
-import { STORAGE_AREA_STATUS, USER_PREF_DEFAULT } from '@/common/constants';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { STORAGE_AREA_STATUS, USER_PREF_DEFAULT } from '@/common/constants';
 
 type SettingsState = {
   notifications?: boolean | undefined;
@@ -22,8 +22,7 @@ export const settingsSlice = createSlice({
       state.notifications = action.payload.notifications;
     },
     setStorageArea(state: SettingsState, action: PayloadAction<SettingsState>) {
-      // ! Disabled until further fixes
-      // state.storageArea = action.payload.storageArea;
+      state.storageArea = action.payload.storageArea;
     },
     resetDefault(state: SettingsState) {
       state.notifications = USER_PREF_DEFAULT[STORAGE_AREA_STATUS];

@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn format
+
+echo "Are manifest.json & package.json version incremented?"
+
+echo "Ctrl+C to cancel the process within 5 seconds."
+
+sleep 5

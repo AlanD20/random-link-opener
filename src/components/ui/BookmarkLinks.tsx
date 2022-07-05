@@ -1,25 +1,21 @@
 import { useEffect } from 'react';
-import { useAppSelector } from '@/common/store';
-import { useChromeStorage } from '@/hooks/useChromeStorage';
 import SingleBookmark from './SingleBookmark';
 import { ImFilesEmpty } from 'react-icons/im';
-import { SYNCED_STORAGE_KEY } from '@/common/constants';
+import { TbListSearch } from 'react-icons/tb';
+import { useChromeStorage } from '@/hooks/useChromeStorage';
+import { useFilterBookmark } from '@/hooks/useFilterBookmark';
 
 const BookmarkLinks = () => {
   const { getAllBookmarks } = useChromeStorage();
 
-  const bookmarks = useAppSelector(
-    (state) => state.bookmarks[SYNCED_STORAGE_KEY]
-  );
-
-  const keys = Object.keys(bookmarks);
+  const { bookmarks, isInputEmpty, count } = useFilterBookmark();
 
   useEffect(() => void getAllBookmarks(), []);
 
   return (
     <ul className="flex flex-col w-full gap-2 pl-0">
-      {keys.length > 0 ? (
-        keys.map((key: string) => (
+      {count > 0 &&
+        Object.keys(bookmarks).map((key: string) => (
           <SingleBookmark
             key={key}
             id={bookmarks[key]['id']}
@@ -27,11 +23,19 @@ const BookmarkLinks = () => {
             name={bookmarks[key]['name']}
             icon={bookmarks[key]['icon']}
           />
-        ))
-      ) : (
-        <h3 className="flex flex-col items-center justify-center gap-4 font-bold text-xl text-gray-400">
-          <ImFilesEmpty className="" />
+        ))}
+
+      {isInputEmpty && count === 0 && (
+        <h3 className="flex flex-col items-center justify-center gap-4 font-bold text-xl text-gray-400 my-8">
+          <ImFilesEmpty />
           Bookmark is empty!
+        </h3>
+      )}
+
+      {!isInputEmpty && count === 0 && (
+        <h3 className="flex flex-col items-center justify-center gap-4 font-bold text-xl text-gray-400 my-8">
+          <TbListSearch />
+          Bookmark not found!
         </h3>
       )}
     </ul>

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import alertReducer from '../features/alertSlice';
 import bookmarksReducer from '../features/bookmarksSlice';
 import settingsReducer from '../features/settingsSlice';
-import alertReducer from '../features/alertSlice';
 import { TypedUseSelectorHook, useSelector, useDispatch } from 'react-redux';
 
 const store = configureStore({
