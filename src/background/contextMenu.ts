@@ -1,3 +1,4 @@
+import { ACTIONS } from './actions';
 import {
   CURRENT_TAB,
   ALL_TABS,
@@ -6,7 +7,6 @@ import {
   COMMANDS_LIST,
   CLEAR_BOOKMARK,
 } from '@/common/constants';
-import { ACTIONS } from './actions';
 
 export interface ContextType {
   id: string;

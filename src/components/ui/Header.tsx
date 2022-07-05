@@ -1,5 +1,5 @@
-import NavItem from '../NavItem';
 import Navbar from './Navbar';
+import NavItem from '../NavItem';
 import { FaHome } from 'react-icons/fa';
 import { BiBookAdd } from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';

@@ -1,4 +1,5 @@
 import { useAppDispatch } from '@/common/store';
+import { clearAlert, setError, setSuccess } from '@/features/alertSlice';
 import {
   getBookmarkStorageList,
   getSingleBookmarkStorage,
@@ -7,7 +8,6 @@ import {
   deleteBookmarkStorageItem,
   clearBookmarkStorage,
 } from '@/common/storage';
-import { clearAlert, setError, setSuccess } from '@/features/alertSlice';
 import {
   BaseBookmark,
   Bookmark,

@@ -1,3 +1,5 @@
+import { createNotify } from '@/common/notifications';
+import { Bookmark, BookmarkObject } from '@/features/bookmarksSlice';
 import {
   clearBookmarkStorage,
   getBookmarkStorageList,
@@ -11,8 +13,6 @@ import {
   LATEST_TAB,
   CLEAR_BOOKMARK,
 } from '@/common/constants';
-import { createNotify } from '@/common/notifications';
-import { Bookmark, BookmarkObjects } from '@/features/bookmarksSlice';
 
 interface Actions {
   [key: string]: (tab?: chrome.tabs.Tab) => void;
@@ -42,7 +42,7 @@ export const ACTIONS: Actions = {
     await createNotify(ALL_TABS.id, ALL_TABS.title, ALL_TABS.description);
   },
   [RANDOM_TAB.name]: async () => {
-    const items: BookmarkObjects = await getBookmarkStorageList();
+    const items: BookmarkObject = await getBookmarkStorageList();
 
     const length = Object.keys(items).length;
     const randomIndex = Math.ceil(Math.random() * 1000) % length;
@@ -56,7 +56,7 @@ export const ACTIONS: Actions = {
     await createNotify(RANDOM_TAB.id, RANDOM_TAB.title, RANDOM_TAB.description);
   },
   [LATEST_TAB.name]: async () => {
-    const items: BookmarkObjects = await getBookmarkStorageList();
+    const items: BookmarkObject = await getBookmarkStorageList();
 
     // * Sort by descending order for created_at property
     const sorted = Object.keys(items).sort(

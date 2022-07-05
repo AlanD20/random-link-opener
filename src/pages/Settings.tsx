@@ -1,17 +1,16 @@
+import { useEffect } from 'react';
+import Navbar from '@/components/ui/Navbar';
+import ToggleInput from '@/components/ToggleInput';
+import AlertStatus from '@/components/ui/AlertStatus';
+import { useChromeStorage } from '@/hooks/useChromeStorage';
 import { useAppDispatch, useAppSelector } from '@/common/store';
 import {
   clearUserPref,
   getNotificationStatus,
   getStorageAreaStatus,
-  getUserPref,
   setNotificationStatus,
   setStorageAreaStatus,
 } from '@/common/userPref';
-import ToggleInput from '@/components/ToggleInput';
-import { useEffect } from 'react';
-import Navbar from '@/components/ui/Navbar';
-import AlertStatus from '@/components/ui/AlertStatus';
-import { useChromeStorage } from '@/hooks/useChromeStorage';
 import {
   resetDefault,
   setNotification,
@@ -40,8 +39,9 @@ const Settings = () => {
   const handleToggleStorageSync = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    await setStorageAreaStatus(e.target.checked);
     dispatch(setStorageArea({ storageArea: e.target.checked }));
+    await setStorageAreaStatus(e.target.checked);
+    window.location.reload();
   };
 
   const handleShortcutBtn = async () => {
@@ -63,9 +63,10 @@ const Settings = () => {
 
   return (
     <div className="page prose prose-sm">
+      <AlertStatus />
+
       <h2 className="text-gray-700">Settings</h2>
 
-      <AlertStatus />
       <div className="mb-8 flex flex-col text-xl gap-4 w-full">
         <ToggleInput
           className={settings.notifications ? 'bg-red-400' : 'bg-gray-500'}
@@ -80,7 +81,6 @@ const Settings = () => {
           value={settings.storageArea}
           label="Sync Storage"
           onClick={handleToggleStorageSync}
-          disabled={true}
         />
       </div>
 
@@ -93,16 +93,16 @@ const Settings = () => {
         </a>
         <ul className="flex items-center justify-between mx-8 pl-0">
           <button
-            className="btn btn-error text-white"
+            className="btn btn-error text-white hover:bg-red-500"
             onClick={handleClearUserPref}
           >
-            Clear User Preferences
+            Reset Settings
           </button>
           <button
-            className="btn btn-error text-white"
+            className="btn btn-error text-white hover:bg-red-500"
             onClick={async (_) => void (await clearBookmark())}
           >
-            Clear All
+            Clear Bookmarks
           </button>
         </ul>
       </Navbar>

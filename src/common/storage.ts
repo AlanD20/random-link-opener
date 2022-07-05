@@ -1,8 +1,7 @@
-import { BaseBookmark, Bookmark } from '@/features/bookmarksSlice';
 import { nanoid } from 'nanoid';
 import { SYNCED_STORAGE_KEY } from './constants';
-import { setBadge } from './notifications';
 import { getStorageAreaStatus } from './userPref';
+import { BaseBookmark, Bookmark } from '@/features/bookmarksSlice';
 
 export const chromeStorage = async () => {
   const syncStatus: boolean = await getStorageAreaStatus();
@@ -48,15 +47,16 @@ export const setBookmarkStorageItem = async ({
   });
 };
 export const setBookmarkStorageList = async (items: chrome.tabs.Tab[]) => {
-  if (items.length <= 0) return;
+  if (items.length === 0) return;
 
   const storageArea = await chromeStorage();
   const prevItems = await getBookmarkStorageList();
-  const filteredItems = items.length >= 10 ? items.splice(0, 10) : items;
 
-  const data = filteredItems.reduce((acc, curr) => {
+  console.log('THIS IS BOOKMARK SET');
+  console.log(items);
+
+  const data = items.splice(0, 10).reduce((acc, curr) => {
     const id = nanoid(25);
-
     return {
       ...acc,
       [id]: {
@@ -75,6 +75,7 @@ export const setBookmarkStorageList = async (items: chrome.tabs.Tab[]) => {
       ...data,
     },
   });
+
   // Recursively save all opened tabs
   await setBookmarkStorageList(items);
 };
