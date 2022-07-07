@@ -45,6 +45,7 @@ export const useChromeStorage = () => {
     dispatch(clearAlert());
     try {
       await updateBookmarkStorageItem({ id, name, url });
+
       dispatch(setSuccess({ success: 'Bookmark Updated' }));
     } catch (err) {
       dispatch(setError({ error: 'Failed to Update Bookmark' }));

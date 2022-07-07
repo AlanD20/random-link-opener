@@ -52,9 +52,6 @@ export const setBookmarkStorageList = async (items: chrome.tabs.Tab[]) => {
   const storageArea = await chromeStorage();
   const prevItems = await getBookmarkStorageList();
 
-  console.log('THIS IS BOOKMARK SET');
-  console.log(items);
-
   const data = items.splice(0, 10).reduce((acc, curr) => {
     const id = nanoid(25);
     return {
@@ -84,13 +81,18 @@ export const updateBookmarkStorageItem = async ({
   id,
   name,
   url,
-  icon,
 }: Bookmark) => {
   const storageArea = await chromeStorage();
+  const prevItems = await getBookmarkStorageList();
 
   return storageArea.set({
     [SYNCED_STORAGE_KEY]: {
-      [id as string]: { id, name, url, icon },
+      ...prevItems,
+      [id]: {
+        ...prevItems[id],
+        name,
+        url,
+      },
     },
   });
 };
