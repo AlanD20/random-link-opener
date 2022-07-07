@@ -1,14 +1,15 @@
 {
   "name": "random-link-opener",
-  "description": "Bookmark websites and use shortcut to randomly open one of the bookmarked website.",
+  "description": "Bookmark Links and open them when you need it, using a keyboard shortcut..",
   "private": true,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "homepage": "https://github.com/AlanD20/random-link-openers",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "bundle": "rm -rf ./bundle.zip ./dist && yarn build && cd ./dist && zip -r bundle.zip * && mv ./bundle.zip ..",
+    "win:bundle": "rm -rf ./bundle.zip ./dist && yarn build",
     "preview": "vite preview",
     "format": "prettier -w src",
     "prepare": "husky install && chmod x+ .husky/pre-commit"

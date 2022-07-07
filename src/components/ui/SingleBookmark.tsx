@@ -31,7 +31,7 @@ const SingleBookmark = ({ id, url, name, icon }: Props) => {
     <li className="flex bg-gray-100 rounded-md hover:bg-gray-200 cursor-pointer">
       <button
         onClick={handleOpenTabButton}
-        className="underline flex gap-2 items-center capitalize w-full py-4 px-3"
+        className="underline flex gap-2 items-center w-full py-4 px-3"
       >
         {iconUrl ? (
           <img
