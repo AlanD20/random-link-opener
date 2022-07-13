@@ -15,11 +15,10 @@ const NavItem = ({
   childClass = '',
   parentClass,
 }: Props) => {
-  const classes =
-    'flex justify-center items-center gap-2 btn ' + childClass + ' ';
-
   const activeClass = ({ isActive }: { isActive: boolean }) =>
-    classes + (isActive ? 'text-red-400 ring-2 ring-red-400' : '');
+    `flex justify-center items-center gap-2 btn ${childClass} ${
+      isActive ? 'text-red-400 ring-2 ring-red-400' : ''
+    }`;
 
   return (
     <li className={'flex items-stretch' + parentClass}>

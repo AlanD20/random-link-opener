@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Random Link Opener",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Bookmark Links and open them when you need it, using a keyboard shortcut.",
   "author": "AlanD20 <aland20@pm.me>",
   "commands": {

@@ -28,8 +28,6 @@ const EditBookmark = () => {
   };
   return (
     <div className="page prose prose-sm">
-      <AlertStatus />
-
       <h2 className="text-gray-700">Edit Bookmark</h2>
 
       <form className="form-control gap-4 w-full" onSubmit={handleEditSubmit}>
@@ -52,6 +50,8 @@ const EditBookmark = () => {
           Update
         </button>
       </form>
+
+      <AlertStatus />
     </div>
   );
 };

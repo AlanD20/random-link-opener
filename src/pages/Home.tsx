@@ -8,12 +8,12 @@ const Home = () => {
 
   return (
     <div className="page">
-      <AlertStatus />
       <FilterInput />
       <h2 className="text-2xl mb-4 font-bold text-gray-700">
         All Bookmarks ( {count ?? 0} )
       </h2>
       <BookmarkLinks />
+      <AlertStatus />
     </div>
   );
 };

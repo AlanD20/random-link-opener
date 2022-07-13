@@ -41,15 +41,11 @@ yarn win:bundle # if zip is unavailable in Terminal
 ```bash
 yarn install
 ```
-2. Run prepare script in package.json
-```bash
-yarn prepare
-```
-3. Start dev server
+2. Start dev server
 ```bash
 yarn dev
 ```
-4. Load the `dist` directory in your Chrome Extension page `chrome://extensions/`. 
+3. Load the `dist` directory in your Chrome Extension page `chrome://extensions/`. 
    - Any changes you do in the project files, it will reflect instantly without reloading manually.
    - if you change manifest permissions, you must uninstall and reinstall the extension again to your chrome extensions.
 
@@ -61,7 +57,6 @@ Want to add new features? Bug fixes? Typos? Feel free to open a new pull request
 ### Contribution Rules:
 
 - Checkout other files in the folder structure if you want to create a new file and don't know where to put.
-- Do not forget to run `yarn prepare` only after when you cloned and installed the packages. Husky warns you if you forget to increment version and formats the codebase.
 - **Work on main branch only if the changes are internal and does not benefit extension users, or meets one of the following reasons:**
     1. Fixing a bug that only changes small portion of the codes in the project. Mostly sums up to less than 15 lines of codes. Otherwise, create a new branch.
     3. Typos in the code or documentation.

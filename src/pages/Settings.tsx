@@ -63,8 +63,6 @@ const Settings = () => {
 
   return (
     <div className="page prose prose-sm">
-      <AlertStatus />
-
       <h2 className="text-gray-700">Settings</h2>
 
       <div className="mb-8 flex flex-col text-xl gap-4 w-full">
@@ -106,6 +104,8 @@ const Settings = () => {
           </button>
         </ul>
       </Navbar>
+
+      <AlertStatus />
     </div>
   );
 };

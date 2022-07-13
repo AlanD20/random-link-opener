@@ -14,14 +14,6 @@ const Footer = () => {
           <FaGithub />
         </a>
         <a
-          className="btn btn-error btn-sm text-white text-lg hover:bg-red-500"
-          rel="noreferrer"
-          target="_blank"
-          href={EXTERNAL_LINKS.heart}
-        >
-          <FaHeart />
-        </a>
-        <a
           className="btn btn-sm btn-info text-white text-xl hover:bg-sky-500"
           rel="noreferrer"
           target="_blank"

@@ -22,7 +22,7 @@ const ToggleInput = ({
         <input
           id={name}
           type="checkbox"
-          className={'toggle ' + className}
+          className={`toggle ${className}`}
           defaultChecked={value}
           onClick={onClick}
           disabled={disabled}
